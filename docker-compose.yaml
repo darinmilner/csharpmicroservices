@@ -1,12 +1,12 @@
 services:
-  postgres:
-    image: postgres:16.1-alpine3.19
-    environment:
-      - POSTGRES_PASSWORD=postgrespw 
-    ports:
-      - 5432:5432
-    volumes:
-      - pgdata:/var/lib/postgresql/data
+  # postgres:
+  #   image: postgres:16.1-alpine3.19
+  #   environment:
+  #     - POSTGRES_PASSWORD=postgrespw 
+  #   ports:
+  #     - 5432:5432
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
 
     mongodb:
       image: mongo 
@@ -19,7 +19,7 @@ services:
         - mongodata:/var/lib/mongodb/data 
       
 volumes:
-  pgdata:
+  # pgdata:
   mongodata:
 
 
