@@ -1,26 +1,32 @@
 services:
-  # postgres:
-  #   image: postgres:16.1-alpine3.19
-  #   environment:
-  #     - POSTGRES_PASSWORD=postgrespw 
-  #   ports:
-  #     - 5432:5432
-  #   volumes:
-  #     - pgdata:/var/lib/postgresql/data
+  postgres:
+    image: postgres:16.1-alpine3.19
+    environment:
+      - POSTGRES_PASSWORD=postgrespw 
+    ports:
+      - 5432:5432
+    volumes:
+      - /var/lib/postgresql/data
 
-    mongodb:
-      image: mongo 
-      environment:
-        - MONGO_INITDB_ROOT_USERNAME=root 
-        - MONGO_INITDB_ROOT_PASSWORD=mongodb 
-      ports:
-        - 27017:27017
-      volumes:
-        - mongodata:/var/lib/mongodb/data 
+  mongodb:
+    image: mongo 
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root 
+      - MONGO_INITDB_ROOT_PASSWORD=mongodb 
+    ports:
+      - 27017:27017
+    volumes:
+      - /var/lib/mongodb/data 
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine 
+    ports:
+      - 5672:5672
+      - 15672:15672
       
-volumes:
-  # pgdata:
-  mongodata:
+# volumes:
+#   # pgdata:
+#   mongodata:
 
 
 # dotnet ef database update
